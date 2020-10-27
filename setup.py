@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name='marshmallow-mongoengine',
-    version='0.11.0',
+    version='0.30.0',
     description='Mongoengine integration with the marshmallow '
                 '(de)serialization library',
     long_description=read('README.rst'),
@@ -23,7 +23,7 @@ setup(
     install_requires=['mongoengine>=0.9.0'],
     extras_require={
         'toasted': ['toastedmarshmallow>=0.2.6'],
-        'marshmallow': ['marshmallow>=2.1.0,<3'],
+        'marshmallow': ['marshmallow>=3.0.0b7'],
     },
     license='MIT',
     zip_safe=False,

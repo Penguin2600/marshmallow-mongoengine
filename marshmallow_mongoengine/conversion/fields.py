@@ -52,7 +52,7 @@ class MetaFieldBuilder(object):
 
 
 class ListBuilder(MetaFieldBuilder):
-    AVAILABLE_PARAMS = (params.LenghtParam,)
+    AVAILABLE_PARAMS = (params.LengthParam,)
     MARSHMALLOW_FIELD_CLS = ma_fields.List
 
     def _get_marshmallow_field_cls(self):
@@ -174,7 +174,7 @@ register_field(
 register_field(me.fields.DictField, ma_fields.Raw)
 register_field(me.fields.DynamicField, ma_fields.Raw)
 register_field(
-    me.fields.EmailField, ma_fields.Email, available_params=(params.LenghtParam,)
+    me.fields.EmailField, ma_fields.Email, available_params=(params.LengthParam,)
 )
 register_field(
     me.fields.FloatField, ma_fields.Float, available_params=(params.SizeParam,)
@@ -183,7 +183,7 @@ register_field(
     me.fields.GenericEmbeddedDocumentField, ma_fields.GenericEmbeddedDocument
 )
 register_field_builder(me.fields.GenericReferenceField, GenericReferenceBuilder)
-register_field_builder(me.fields.ReferenceField, ReferenceBuilder)
+register_field_builder(me.fields.ReferenceField, EmbeddedDocumentBuilder)
 # LazyReferenceField and GenericLazyReference need mongoengine >= 0.15.0
 if hasattr(me.fields, "LazyReferenceField"):
     register_field_builder(me.fields.LazyReferenceField, ReferenceBuilder)
@@ -207,10 +207,10 @@ register_field(
 register_field(
     me.fields.StringField,
     ma_fields.String,
-    available_params=(params.LenghtParam, params.RegexParam),
+    available_params=(params.LengthParam, params.RegexParam),
 )
 register_field(
-    me.fields.URLField, ma_fields.URL, available_params=(params.LenghtParam,)
+    me.fields.URLField, ma_fields.URL, available_params=(params.LengthParam,)
 )
 register_field_builder(me.fields.EmbeddedDocumentField, EmbeddedDocumentBuilder)
 register_field_builder(me.fields.ListField, ListBuilder)
@@ -218,7 +218,6 @@ register_field_builder(me.fields.MapField, MapBuilder)
 register_field_builder(me.fields.SortedListField, ListBuilder)
 # TODO: finish fields...
 # me.fields.GeoPointField: ma_fields.GeoPoint,
-# me.fields.LineStringField: ma_fields.LineString,
 # me.fields.PolygonField: ma_fields.Polygon,
 # me.fields.MultiPointField: ma_fields.MultiPoint,
 # me.fields.MultiLineStringField: ma_fields.MultiLineString,
